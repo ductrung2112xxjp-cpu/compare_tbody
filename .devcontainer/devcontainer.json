@@ -1,0 +1,24 @@
+{
+  "name": "py-workspace",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {}
+  },
+  "postCreateCommand": "python -m pip install -U pip && pip install -r beautifulsoup4 lxml || true",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "ms-python.isort"
+      ],
+      "settings": {
+        "python.testing.pytestEnabled": true,
+        "python.testing.pytestArgs": ["-q", "tests"]
+      }
+    }
+  },
+  "forwardPorts": [8000],
+  "portsAttributes": { "8000": { "label": "app", "onAutoForward": "openBrowser" } }
+}
